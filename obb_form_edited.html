@@ -17,7 +17,7 @@
 <style type="text/css">
     th {font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; font-weight:bold; padding-left: 15px; width: 40px; padding-right:10px;}
     td {font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-left:10px;}
-    #search_button {font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#e3e3e3; height:24px; color:#f00; border:solid 1px #dddddd; padding:0; margin:0; cursor:pointer; line-height:12px; vertical-align:middle; width:125px; text-align: center; float: right;}
+    #search_button {font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color: #e5e5e5; height:24px; color:#f00; border:solid 1px #c9c9c9; padding:0; margin:0; cursor:pointer; line-height:12px; vertical-align:middle; width:125px; text-align: center; float: right;}
     #suggestionMenu                                             {background:url(http://fahrplan.oebb.at/img/vs_scotty/standard/bg_blu_content.png) 0 100px;}
     #suggestion li.adr,#suggestion li.adrselected               {background-image:url(http://fahrplan.oebb.at/img/icons/icon_address.png);background-repeat:no-repeat;background-position: 0 0;}
     #suggestion li.poi,#suggestion li.poiselected               {background-image:url(http://fahrplan.oebb.at/img/icons/icon_poi.png);background-repeat:no-repeat;background-position: 0 0;}
@@ -87,6 +87,10 @@
                     </th>
                     <td>
                         <input id="hafas_inputgen_date" type="text" name="REQ0JourneyStopsSG" value="" size="16" style="background-color:#fff; color: #000; width: 210px;" accesskey="f" tabindex="1">
+                        <script type="text/javascript">
+                            $now = new Date();
+                            document.getElementById('hafas_inputgen_date').value = $now.getDate()+"."+($now.getMonth()+1)+"."+$now.getFullYear();
+                        </script>
                         <input type="hidden" name="REQ0JourneyDate" value="" accesskey="d">
                     </td>
                 </tr>
@@ -96,6 +100,10 @@
                     </th>
                     <td>
                         <input id="hafas_inputgen_time" type="text" name="REQ0JourneyStopsSG" value="" size="16" style="background-color:#fff; color: #000; width: 210px;" accesskey="f" tabindex="1">
+                        <script type="text/javascript">
+                           // $now = new Date();
+                            document.getElementById('hafas_inputgen_time').value = $now.getHours()+":"+$now.getMinutes();
+                        </script>
                         <input type="hidden" name="REQ0JourneyTime" value="" accesskey="c">
                     </td>
                 </tr>
@@ -119,9 +127,7 @@
     var time=new Date();
 </script>
 
-
-<p style="text-align: left;">HAFAS</p>
-<p style="text-align: left;">Linkage conditions oebb.at timetable</p>
+<h2>Linkage conditions oebb.at timetable</h2>
 <p style="text-align: left;">The present regulations apply in addition to the general legal provisions of oebb.at.</p>
 <p style="text-align: left;">You are welcome to place a link on our timetable pages and to integrate the Link, the Button and the Input Mask into your own pages, but only with the proviso that the conditions below be met.</p>
 <p style="text-align: left;">The setting of hyperlinks on our timetable pages is only permissible if</p>
