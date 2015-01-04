@@ -16,7 +16,7 @@
  * Add function to widgets_init that'll load our widget.
  * @since 0.1
  */
-add_action( 'widgets_init', 'obb_widget_loader' );
+add_action('widgets_init', 'obb_widget_loader');
 
 /**
  * Register our widget.
@@ -24,36 +24,40 @@ add_action( 'widgets_init', 'obb_widget_loader' );
  *
  * @since 0.1
  */
-function obb_widget_loader() {
-	register_widget( 'OBB_Widget' );
+function obb_widget_loader()
+{
+    register_widget('OBB_Widget');
 }
 
-class OBB_Widget extends WP_Widget {
+class OBB_Widget extends WP_Widget
+{
 
-	/**
-	 * Widget setup.
-	 */
-	function OBB_Widget() {
-		/* Widget settings. */
-		$widget_ops = array( 'classname'   => 'example',
-		                     'description' => __( 'The good-old ÖBB Scotty Planner enhanced with date and time pickers' )
-		);
+    /**
+     * Widget setup.
+     */
+    function OBB_Widget()
+    {
+        /* Widget settings. */
+        $widget_ops = array('classname' => 'example',
+            'description' => __('The good-old ÖBB Scotty Planner enhanced with date and time pickers')
+        );
 
-		/* Widget control settings. */
-		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'obb-widget' );
+        /* Widget control settings. */
+        $control_ops = array('width' => 300, 'height' => 350, 'id_base' => 'obb-widget');
 
-		/* Create the widget. */
-		$this->WP_Widget( 'obb-widget', __( 'ÖBB Scotty Planner', 'example' ), $widget_ops, $control_ops );
-	}
+        /* Create the widget. */
+        $this->WP_Widget('obb-widget', __('ÖBB Scotty Planner', 'example'), $widget_ops, $control_ops);
+    }
 
-	/**
-	 * How to display the widget on the screen.
-	 */
-	function widget( $args, $instance ) {
-		// This will handle the click events on the two input fields
+    /**
+     * How to display the widget on the screen.
+     */
+    function widget($args, $instance)
+    {
+        // This will handle the click events on the two input fields
 
-		$datepicker =
-			"<script type=\"text/javascript\">
+        $datepicker =
+            "<script type=\"text/javascript\">
 				jQuery(document).ready(function() {
 				    jQuery('#MyDate').datepicker({
 				        dateFormat : 'dd.mm.yy',
@@ -72,10 +76,10 @@ class OBB_Widget extends WP_Widget {
 				});
 			</script>";
 
-		// This is the ÖBB Scotty Planner code, tweaked a little bit to display
-		// the date and time input fields and hook them up to the pickers
+        // This is the ÖBB Scotty Planner code, tweaked a little bit to display
+        // the date and time input fields and hook them up to the pickers
 
-		$obb_scotty = "<script type=\"text/javascript\" src=\"http://fahrplan.oebb.at/js/suggest/FSuggest_v1.0.js\"></script>
+        $obb_scotty = "<script type=\"text/javascript\" src=\"http://fahrplan.oebb.at/js/suggest/FSuggest_v1.0.js\"></script>
 <link rel=\"stylesheet\" type=\"text/css\" href=\"http://fahrplan.oebb.at/css/scotty_suggest.css\"></script>
 <script type=\"text/javascript\">
 var t_topMatches = \"Top matches\";
@@ -99,7 +103,7 @@ var t_furtherMatches = \"Search for additional matches ...\";
 #suggestion li                                             {background:url(http://fahrplan.oebb.at/img/vs_scotty/station.gif) no-repeat 2px 2px;}
 .topmatches                                                 {background:url(http://fahrplan.oebb.at/img/vs_scotty/standard/bg_results_th.png) repeat scroll 0 0;}
 </style>
-<div style=\"width: 240px; margin: 10px 0px; padding: 0px; text-align: right;background-color:#ffffff;\">
+<div style=\"width: 230px; margin: 10px 0px; padding: 0px; text-align: right;background-color:#ffffff;\">
 <div style=\"width: 100%; border: 1px solid #cecece; margin: 0; padding: 10px;\" summary=\"Layout\">
 <div style=\"border-bottom:1px solid #CECECE; margin:4px;\" align=\"center\">
 <img src=\"http://fahrplan.oebb.at/img/logo_oebb.gif\" style=\"width:132px;height:50px;\" alt=\"OEBB\" />
@@ -169,27 +173,29 @@ var time=new Date();
 </script>
   ";
 
-		// Add our datepicker to the scotty code
-		echo $datepicker . $obb_scotty;
-	}
+        // Add our datepicker to the scotty code
+        echo $datepicker . $obb_scotty;
+    }
 
-	/**
-	 * Update the widget settings.
-	 */
-	function update( $new_instance, $old_instance ) {
-		$instance = $old_instance;
+    /**
+     * Update the widget settings.
+     */
+    function update($new_instance, $old_instance)
+    {
+        $instance = $old_instance;
 
-		return $instance;
-	}
+        return $instance;
+    }
 
-	/**
-	 * Displays the widget settings controls on the widget panel.
-	 * Make use of the get_field_id() and get_field_name() function
-	 * when creating your form elements. This handles the confusing stuff.
-	 */
-	function form( $instance ) {
-		/* Set up some default widget settings. */
-	}
+    /**
+     * Displays the widget settings controls on the widget panel.
+     * Make use of the get_field_id() and get_field_name() function
+     * when creating your form elements. This handles the confusing stuff.
+     */
+    function form($instance)
+    {
+        /* Set up some default widget settings. */
+    }
 }
 
 ?>
