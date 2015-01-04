@@ -3,7 +3,7 @@
  * Plugin Name: ÖBB Widget
  * Plugin URI:
  * Description: Embeds the OBB Planner as a WordPress widget
- * Version: 1.0
+ * Version: 1.1
  * Author: Eszter Bordi, Sorin Davidoi, Andreea Muscalagiu, Lucie Triskova
  * Author URI:
  *
@@ -80,7 +80,7 @@ class OBB_Widget extends WP_Widget
         // the date and time input fields and hook them up to the pickers
 
         $obb_scotty = "<script type=\"text/javascript\" src=\"http://fahrplan.oebb.at/js/suggest/FSuggest_v1.0.js\"></script>
-<link rel=\"stylesheet\" type=\"text/css\" href=\"http://fahrplan.oebb.at/css/scotty_suggest.css\"></script>
+<link rel=\"stylesheet\" type=\"text/css\" href=\"http://fahrplan.oebb.at/css/scotty_suggest.css\">
 <script type=\"text/javascript\">
 var t_topMatches = \"Top matches\";
 var t_lastInput = \"Last input\";
@@ -89,6 +89,42 @@ var t_suggestHint2 = \"</b>characters!\";
 var t_furtherMatches = \"Search for additional matches ...\";
 </script>
 <style type=\"text/css\">
+    tr {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.9em;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    th {
+        font-weight: bold;
+        padding-left: 15px;
+        padding-right: 10px;
+        width: 40px;
+    }
+
+    td {
+        padding: 2px 15px 2px 0;
+    }
+
+    input {
+        padding: 4px;
+    }
+
+    #search_connections_button {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        background-color: #e5e5e5;
+        color: #f00;
+        border: solid 1px #c9c9c9;
+        padding: 2px 10px 2px 10px;
+        margin: 10px 0 0 0;
+        cursor: pointer;
+        vertical-align: middle;
+        text-align: center;
+        float: right;
+    }
+
 #suggestionMenu                                             {background:url(http://fahrplan.oebb.at/img/vs_scotty/standard/bg_blu_content.png) 0 100px;}
 #suggestion li.adr,#suggestion li.adrselected               {background-image:url(http://fahrplan.oebb.at/img/icons/icon_address.png);background-repeat:no-repeat;background-position: 0 0;}
 #suggestion li.poi,#suggestion li.poiselected               {background-image:url(http://fahrplan.oebb.at/img/icons/icon_poi.png);background-repeat:no-repeat;background-position: 0 0;}
@@ -103,7 +139,7 @@ var t_furtherMatches = \"Search for additional matches ...\";
 #suggestion li                                             {background:url(http://fahrplan.oebb.at/img/vs_scotty/station.gif) no-repeat 2px 2px;}
 .topmatches                                                 {background:url(http://fahrplan.oebb.at/img/vs_scotty/standard/bg_results_th.png) repeat scroll 0 0;}
 </style>
-<div style=\"width: 230px; margin: 10px 0px; padding: 0px; text-align: right;background-color:#ffffff;\">
+<div style=\"width:250px; margin: 10px 0px; background-color:#ffffff;\">
 <div style=\"width: 100%; border: 1px solid #cecece; margin: 0; padding: 10px;\" summary=\"Layout\">
 <div style=\"border-bottom:1px solid #CECECE; margin:4px;\" align=\"center\">
 <img src=\"http://fahrplan.oebb.at/img/logo_oebb.gif\" style=\"width:132px;height:50px;\" alt=\"OEBB\" />
@@ -113,9 +149,9 @@ var t_furtherMatches = \"Search for additional matches ...\";
 <input type=\"hidden\" value=\"UTF-8\" name=\"_charset_\">
 <table cellspacing=\"0\" cellpadding=\"4\" style=\"width: 155px; margin: 0px;\" class=\"ig\">
 <tr>
-<th style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\"> From <input type=\"hidden\" name=\"REQ0JourneyStopsSA\" value=\"255\"></th>
-<td style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\" colspan=\"2\">
-<input id=\"hafas_inputgen_from\" type=\"text\" name=\"REQ0JourneyStopsSG\" value=\"\" size=\"16\" style=\"background-color:#fff; color: #000; width: 150px; height: 18px; font-size: 11px\" accesskey=\"f\" tabindex=\"1\">
+<th>From <input type=\"hidden\" name=\"REQ0JourneyStopsSA\" value=\"255\"></th>
+<td colspan=\"2\">
+<input id=\"hafas_inputgen_from\" type=\"text\" name=\"REQ0JourneyStopsSG\" value=\"\" accesskey=\"f\" tabindex=\"1\">
 <script type=\"text/javascript\">
              gSuggest_for_company = 'oebb';
 new FSuggest({loc:\"hafas_inputgen_from\",
@@ -127,41 +163,35 @@ stopDelay:300 })
 </script>
 </td>
 </tr>
-<tr>
-<th  style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; font-weight:bold; width: 55px;\">
-           To
-</th>
-<td style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\" colspan=\"2\">
+<tr style=\"line-height: 20px;\">
+<th>To</th>
+<td colspan=\"2\">
 <input type=\"hidden\" name=\"REQ0JourneyStopsZID\" value=\"A=1@O=Katsdorf Ortsplatz@X=14474071@Y=48317855@U=81@L=411085@B=1@p=1418289099@\">
-<b>Katsdorf Ortsplatz</b>
+Katsdorf Ortsplatz
 </td>
 </tr>
 <tr>
-<th  style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; font-weight:bold; width: 55px;\">
-           Date
-</th>
-<td  style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\">
-<input id=\"MyDate\" type=\"text\" name=\"REQ0JourneyDate\" accesskey=\"d\" size=\"16\" style=\"background-color:#fff; color: #000; width: 150px; height: 18px; font-size: 11px\" >
+<th>Date</th>
+<td>
+<input id=\"MyDate\" type=\"text\" name=\"REQ0JourneyDate\" accesskey=\"d\">
 </td>
 </tr>
 <tr>
-<th  style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; font-weight:bold; width: 55px;\">
-           Time
-</th>
-<td  style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\">
-<input id=\"MyTime\" type=\"text\" name=\"REQ0JourneyTime\" \" accesskey=\"c\" size=\"16\" style=\"background-color:#fff; color: #000; width: 150px; height: 18px; font-size: 11px\">
-</td>
-</tr>
-<tr>
-<td colspan=\"2\"  style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\">
-<input class=\"radio\" type=\"radio\" name=\"REQ0HafasSearchForw\" value=\"1\"  checked style=\"width:20px;\">Departure
-<input class=\"radio\" type=\"radio\" name=\"REQ0HafasSearchForw\" value=\"0\"   style=\"width:20px;\">Arrival
+<th>Time</th>
+<td>
+<input id=\"MyTime\" type=\"text\" name=\"REQ0JourneyTime\" accesskey=\"c\">
 </td>
 </tr>
 <tr>
 <td colspan=\"2\">
+<input class=\"radio\" type=\"radio\" name=\"REQ0HafasSearchForw\" value=\"1\"  checked style=\"width: 20px;\">Departure
+<input class=\"radio\" type=\"radio\" name=\"REQ0HafasSearchForw\" value=\"0\"   style=\"width: 20px;\">Arrival
+</td>
+</tr>
+<tr>
+<td colspan=\"2\" style=\"padding-left: 12px;\">
 <input type=\"hidden\" name=\"start\" value=\"Search connections\" />
-<input type=\"submit\" name=\"start\" value=\"Search connections\" tabindex=\"5\" style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#e3e3e3; height:24px; color:#f00; border:solid 1px #ccc; padding:0; margin: 10px 0px 0px 0px; cursor:pointer; line-height:12px; vertical-align:middle; width:220px; text-align:center;\" />
+<input type=\"submit\" id=\"search_connections_button\" name=\"start\" value=\"Search connections\" tabindex=\"5\"/>
 </td>
 </tr>
 </table>
