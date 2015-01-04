@@ -36,7 +36,7 @@ class OBB_Widget extends WP_Widget {
 	function OBB_Widget() {
 		/* Widget settings. */
 		$widget_ops = array( 'classname'   => 'example',
-		                     'description' => __( 'The good-old ÖBB Scotty Planner enchanced with date and time pickers' )
+		                     'description' => __( 'The good-old ÖBB Scotty Planner enhanced with date and time pickers' )
 		);
 
 		/* Widget control settings. */
@@ -157,7 +157,7 @@ stopDelay:300 })
 <tr>
 <td colspan=\"2\">
 <input type=\"hidden\" name=\"start\" value=\"Search connections\" />
-<input type=\"submit\" name=\"start\" value=\"Search connections\" tabindex=\"5\" style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#e3e3e3; height:24px; color:#f00; border:solid 1px #ccc; padding:0; margin: 10px 0px 0px 0px; cursor:pointer; line-height:12px; vertical-align:middle; width:225px; text-align:center;\" />
+<input type=\"submit\" name=\"start\" value=\"Search connections\" tabindex=\"5\" style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#e3e3e3; height:24px; color:#f00; border:solid 1px #ccc; padding:0; margin: 10px 0px 0px 0px; cursor:pointer; line-height:12px; vertical-align:middle; width:220px; text-align:center;\" />
 </td>
 </tr>
 </table>
