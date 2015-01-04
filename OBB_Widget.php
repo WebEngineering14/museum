@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: OBB Widget
+ * Plugin Name: ÖBB Widget
  * Plugin URI:
  * Description: Embeds the OBB Planner as a Wordpress widget
  * Version: 0.1
@@ -17,19 +17,6 @@
  * @since 0.1
  */
 add_action( 'widgets_init', 'obb_widget_loader' );
-
-
-// This will be added to functions.php
-
-// jQuery UI
-// wp_enqueue_script('jquery-ui', 'https://code.jquery.com/ui/1.11.2/jquery-ui.min.js', array(), '1.11.2', 'no');
-// wp_enqueue_style('jquery-ui-style', 'https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css');
-
-// jQuery UI TimePicker Addon
-// wp_enqueue_script('jquery-ui-timepicker-addon', '//cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.js', array('jquery-ui'), '1.4.5', 'no');
-// wp_enqueue_script('jquery-ui-timepicker-addon-style', '//cdn.jsdelivr.net/jquery.ui.timepicker.addon/1.4.5/jquery-ui-timepicker-addon.css');
-
-
 
 /**
  * Register our widget.
@@ -49,14 +36,14 @@ class OBB_Widget extends WP_Widget {
 	function OBB_Widget() {
 		/* Widget settings. */
 		$widget_ops = array( 'classname'   => 'example',
-		                     'description' => __( 'The good-old OBB Scotty Planner enchanced with date and time pickers' )
+		                     'description' => __( 'The good-old ÖBB Scotty Planner enchanced with date and time pickers' )
 		);
 
 		/* Widget control settings. */
 		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'obb-widget' );
 
 		/* Create the widget. */
-		$this->WP_Widget( 'obb-widget', __( 'OBB Scotty Planner', 'example' ), $widget_ops, $control_ops );
+		$this->WP_Widget( 'obb-widget', __( 'ÖBB Scotty Planner', 'example' ), $widget_ops, $control_ops );
 	}
 
 	/**
@@ -71,21 +58,21 @@ class OBB_Widget extends WP_Widget {
 				    jQuery('#MyDate').datepicker({
 				        dateFormat : 'dd.mm.yy',
 				        onSelect: function(date) {
-				            // The value of this input field will get passed to the OBB website
+				            // The value of this input field will get passed to the ÖBB website
 							jQuery('#MyDate').val(date);
 				        }
 				    });
 
 				    jQuery('#MyTime').timepicker({
 				        onSelect: function(time) {
-				            // The value of this input field will get passed to the OBB website
+				            // The value of this input field will get passed to the ÖBB website
 				            jQuery('#MyTime').val(time);
 				        }
 				    });
 				});
 			</script>";
 
-		// This is the OBB Scotty Planner code, tweaked a little bit to display
+		// This is the ÖBB Scotty Planner code, tweaked a little bit to display
 		// the date and time input fields and hook them up to the pickers
 
 		$obb_scotty = "<script type=\"text/javascript\" src=\"http://fahrplan.oebb.at/js/suggest/FSuggest_v1.0.js\"></script>
@@ -112,9 +99,9 @@ var t_furtherMatches = \"Search for additional matches ...\";
 #suggestion li                                             {background:url(http://fahrplan.oebb.at/img/vs_scotty/station.gif) no-repeat 2px 2px;}
 .topmatches                                                 {background:url(http://fahrplan.oebb.at/img/vs_scotty/standard/bg_results_th.png) repeat scroll 0 0;}
 </style>
-<div style=\"width: 165px; margin: 0px; padding: 10px; text-align: right;background-color:#ffffff;\">
-<div style=\"width: 100%; border: 1px solid #cecece; margin: 0; padding: 0px;\" summary=\"Layout\">
-<div style=\"border-bottom:1px solid #CECECE; margin:4px;\" align=\"left\">
+<div style=\"width: 240px; margin: 10px 0px; padding: 0px; text-align: right;background-color:#ffffff;\">
+<div style=\"width: 100%; border: 1px solid #cecece; margin: 0; padding: 10px;\" summary=\"Layout\">
+<div style=\"border-bottom:1px solid #CECECE; margin:4px;\" align=\"center\">
 <img src=\"http://fahrplan.oebb.at/img/logo_oebb.gif\" style=\"width:132px;height:50px;\" alt=\"OEBB\" />
 </div>
 <form action=\"http://fahrplan.oebb.at/bin/query.exe/en?externalCall=yes\" name=\"formular\" method=\"post\" style=\"display:inline\" target=\"_blank\">
@@ -124,7 +111,7 @@ var t_furtherMatches = \"Search for additional matches ...\";
 <tr>
 <th style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\"> From <input type=\"hidden\" name=\"REQ0JourneyStopsSA\" value=\"255\"></th>
 <td style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\" colspan=\"2\">
-<input id=\"hafas_inputgen_from\" type=\"text\" name=\"REQ0JourneyStopsSG\" value=\"\" size=\"16\" style=\"background-color:#fff; color: #000; width: 90px; height: 18px; font-size: 11px\" accesskey=\"f\" tabindex=\"1\">
+<input id=\"hafas_inputgen_from\" type=\"text\" name=\"REQ0JourneyStopsSG\" value=\"\" size=\"16\" style=\"background-color:#fff; color: #000; width: 150px; height: 18px; font-size: 11px\" accesskey=\"f\" tabindex=\"1\">
 <script type=\"text/javascript\">
              gSuggest_for_company = 'oebb';
 new FSuggest({loc:\"hafas_inputgen_from\",
@@ -150,7 +137,7 @@ stopDelay:300 })
            Date
 </th>
 <td  style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\">
-<input id=\"MyDate\" type=\"text\" name=\"REQ0JourneyDate\" accesskey=\"d\" size=\"16\" style=\"background-color:#fff; color: #000; width: 90px; height: 18px; font-size: 11px\" >
+<input id=\"MyDate\" type=\"text\" name=\"REQ0JourneyDate\" accesskey=\"d\" size=\"16\" style=\"background-color:#fff; color: #000; width: 150px; height: 18px; font-size: 11px\" >
 </td>
 </tr>
 <tr>
@@ -158,7 +145,7 @@ stopDelay:300 })
            Time
 </th>
 <td  style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; text-align:left; vertical-align:middle; height:22px; padding-right:3px;\">
-<input id=\"MyTime\" type=\"text\" name=\"REQ0JourneyTime\" \" accesskey=\"c\" size=\"16\" style=\"background-color:#fff; color: #000; width: 90px; height: 18px; font-size: 11px\">
+<input id=\"MyTime\" type=\"text\" name=\"REQ0JourneyTime\" \" accesskey=\"c\" size=\"16\" style=\"background-color:#fff; color: #000; width: 150px; height: 18px; font-size: 11px\">
 </td>
 </tr>
 <tr>
@@ -170,7 +157,7 @@ stopDelay:300 })
 <tr>
 <td colspan=\"2\">
 <input type=\"hidden\" name=\"start\" value=\"Search connections\" />
-<input type=\"submit\" name=\"start\" value=\"Search connections\" tabindex=\"5\" style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#e3e3e3; height:24px; color:#f00; border:solid 1px #ccc; padding:0; margin:0; cursor:pointer; line-height:12px; vertical-align:middle; width:150px; text-align:left;\" />
+<input type=\"submit\" name=\"start\" value=\"Search connections\" tabindex=\"5\" style=\"font-family:Arial, Helvetica, sans-serif; font-size:12px; background-color:#e3e3e3; height:24px; color:#f00; border:solid 1px #ccc; padding:0; margin: 10px 0px 0px 0px; cursor:pointer; line-height:12px; vertical-align:middle; width:225px; text-align:center;\" />
 </td>
 </tr>
 </table>
