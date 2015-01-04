@@ -2,7 +2,7 @@ Museum
 ======
 
 # Description #
-This is a team project by a group of student at Johannes Kepler University for the subject Web Engineering (2014W).
+This is a team project by a group of studentsgit  at Johannes Kepler University for the subject Web Engineering (2014W).
 
 The aim of the project is to implement a Wordpress plugin that would be useful for the [Museum of Teasal in Katzdorf](http://www.ooemuseumsverbund.at/museum/18_karden-_und_heimatmuseum).
 
