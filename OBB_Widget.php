@@ -2,9 +2,9 @@
 /**
  * Plugin Name: ÖBB Widget
  * Plugin URI:
- * Description: Embeds the OBB Planner as a Wordpress widget
- * Version: 0.1
- * Author:
+ * Description: Embeds the OBB Planner as a WordPress widget
+ * Version: 1.0
+ * Author: Eszter Bordi, Sorin Davidoi, Andreea Muscalagiu, Lucie Triskova
  * Author URI:
  *
  * This program is distributed in the hope that it will be useful,
