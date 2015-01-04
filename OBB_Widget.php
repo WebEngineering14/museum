@@ -139,7 +139,7 @@ var t_furtherMatches = \"Search for additional matches ...\";
 #suggestion li                                             {background:url(http://fahrplan.oebb.at/img/vs_scotty/station.gif) no-repeat 2px 2px;}
 .topmatches                                                 {background:url(http://fahrplan.oebb.at/img/vs_scotty/standard/bg_results_th.png) repeat scroll 0 0;}
 </style>
-<div style=\"width:250px; margin: 10px 0px; background-color:#ffffff;\">
+<div style=\"width:250px; margin: 0 0 30px 0; background-color:#ffffff;\">
 <div style=\"width: 100%; border: 1px solid #cecece; margin: 0; padding: 10px;\" summary=\"Layout\">
 <div style=\"border-bottom:1px solid #CECECE; margin:4px;\" align=\"center\">
 <img src=\"http://fahrplan.oebb.at/img/logo_oebb.gif\" style=\"width:132px;height:50px;\" alt=\"OEBB\" />
