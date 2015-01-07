@@ -79,7 +79,9 @@ class OBB_Widget extends WP_Widget
         // This is the ÖBB Scotty Planner code, tweaked a little bit to display
         // the date and time input fields and hook them up to the pickers
 
-        $obb_scotty = "<script type=\"text/javascript\" src=\"http://fahrplan.oebb.at/js/suggest/FSuggest_v1.0.js\"></script>
+        $obb_scotty = "
+<h3 class=\"widget-title\">Public transport connections<h3>
+<script type=\"text/javascript\" src=\"http://fahrplan.oebb.at/js/suggest/FSuggest_v1.0.js\"></script>
 <link rel=\"stylesheet\" type=\"text/css\" href=\"http://fahrplan.oebb.at/css/scotty_suggest.css\">
 <script type=\"text/javascript\">
 var t_topMatches = \"Top matches\";
@@ -90,7 +92,7 @@ var t_furtherMatches = \"Search for additional matches ...\";
 </script>
 <style type=\"text/css\">
     tr {
-        font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
         font-size: 0.9em;
         text-align: left;
         vertical-align: middle;
@@ -98,13 +100,12 @@ var t_furtherMatches = \"Search for additional matches ...\";
 
     th {
         font-weight: bold;
-        padding-left: 15px;
+        padding-left: 7px;
         padding-right: 10px;
-        width: 40px;
     }
 
     td {
-        padding: 2px 15px 2px 0;
+        padding: 2px 5px 2px 0;
     }
 
     input {
@@ -112,7 +113,6 @@ var t_furtherMatches = \"Search for additional matches ...\";
     }
 
     #search_connections_button {
-        font-family: Arial, Helvetica, sans-serif;
         font-size: 13px;
         background-color: #e5e5e5;
         color: #f00;
@@ -139,7 +139,7 @@ var t_furtherMatches = \"Search for additional matches ...\";
 #suggestion li                                             {background:url(http://fahrplan.oebb.at/img/vs_scotty/station.gif) no-repeat 2px 2px;}
 .topmatches                                                 {background:url(http://fahrplan.oebb.at/img/vs_scotty/standard/bg_results_th.png) repeat scroll 0 0;}
 </style>
-<div style=\"width:250px; margin: 0 0 30px 0; background-color:#ffffff;\">
+<div style=\"width:235px; margin: 0 0 30px 0; background-color:#ffffff;\">
 <div style=\"width: 100%; border: 1px solid #cecece; margin: 0; padding: 10px;\" summary=\"Layout\">
 <div style=\"border-bottom:1px solid #CECECE; margin:4px;\" align=\"center\">
 <img src=\"http://fahrplan.oebb.at/img/logo_oebb.gif\" style=\"width:132px;height:50px;\" alt=\"OEBB\" />
@@ -149,7 +149,7 @@ var t_furtherMatches = \"Search for additional matches ...\";
 <input type=\"hidden\" value=\"UTF-8\" name=\"_charset_\">
 <table cellspacing=\"0\" cellpadding=\"4\" style=\"width: 155px; margin: 0px;\" class=\"ig\">
 <tr>
-<th>From <input type=\"hidden\" name=\"REQ0JourneyStopsSA\" value=\"255\"></th>
+<th>From<input type=\"hidden\" name=\"REQ0JourneyStopsSA\" value=\"255\"></th>
 <td colspan=\"2\">
 <input id=\"hafas_inputgen_from\" type=\"text\" name=\"REQ0JourneyStopsSG\" value=\"\" accesskey=\"f\" tabindex=\"1\">
 <script type=\"text/javascript\">
