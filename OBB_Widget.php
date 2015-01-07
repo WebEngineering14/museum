@@ -3,8 +3,8 @@
  * Plugin Name: ÖBB Widget
  * Plugin URI:
  * Description: Embeds the OBB Planner as a WordPress widget
- * Version: 1.1
- * Author: Eszter Bordi, Sorin Davidoi, Andreea Muscalagiu, Lucie Triskova
+ * Version: 1.2
+ * Author: Eszter Bordi, Sorin Davidoi, Andreea Muscalagiu and Lucie Triskova
  * Author URI:
  *
  * This program is distributed in the hope that it will be useful,
@@ -90,7 +90,7 @@ var t_furtherMatches = \"Search for additional matches ...\";
 </script>
 <style type=\"text/css\">
     tr {
-	font-family: Arial, Helvetica, sans-serif;
+	    font-family: Arial, Helvetica, sans-serif;
         font-size: 0.9em;
         text-align: left;
         vertical-align: middle;
@@ -103,11 +103,12 @@ var t_furtherMatches = \"Search for additional matches ...\";
     }
 
     td {
-        padding: 2px 5px 2px 0;
+        padding: 2px 0;
     }
 
     input {
         padding: 4px;
+        width: 130px;
     }
 
     #search_connections_button {
@@ -115,7 +116,7 @@ var t_furtherMatches = \"Search for additional matches ...\";
         background-color: #e5e5e5;
         color: #f00;
         border: solid 1px #c9c9c9;
-        padding: 2px 10px 2px 10px;
+        padding: 2.5px;
         margin: 10px 0 0 0;
         cursor: pointer;
         vertical-align: middle;
