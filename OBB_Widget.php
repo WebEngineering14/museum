@@ -55,7 +55,6 @@ class OBB_Widget extends WP_Widget
     function widget($args, $instance)
     {
         // This will handle the click events on the two input fields
-
         $datepicker =
             "<script type=\"text/javascript\">
 				jQuery(document).ready(function() {
@@ -78,7 +77,6 @@ class OBB_Widget extends WP_Widget
 
         // This is the ÖBB Scotty Planner code, tweaked a little bit to display
         // the date and time input fields and hook them up to the pickers
-
         $obb_scotty = "
 <h3 class=\"widget-title\">Public transport connections<h3>
 <script type=\"text/javascript\" src=\"http://fahrplan.oebb.at/js/suggest/FSuggest_v1.0.js\"></script>
@@ -174,12 +172,20 @@ Katsdorf Ortsplatz
 <th>Date</th>
 <td>
 <input id=\"MyDate\" type=\"text\" name=\"REQ0JourneyDate\" accesskey=\"d\">
+<script type=\"text/javascript\">
+    var now = new Date();
+    document.getElementById('MyDate').value = now.getDate()+\".\"+(now.getMonth()+1)+\".\"+now.getFullYear();
+</script>
 </td>
 </tr>
 <tr>
 <th>Time</th>
 <td>
 <input id=\"MyTime\" type=\"text\" name=\"REQ0JourneyTime\" accesskey=\"c\">
+<script type=\"text/javascript\">
+    var now = new Date();
+    document.getElementById('MyTime').value = now.getHours()+\":\"+now.getMinutes();
+    </script>
 </td>
 </tr>
 <tr>
